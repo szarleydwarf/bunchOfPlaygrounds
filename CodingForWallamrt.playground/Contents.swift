@@ -8,17 +8,30 @@ func iterateOverArray(array:[Int], number:Int) {
     }
 }
 
-func toDictionary(array:[Int]) {
-    let dic = array.map{ ($0, intAsWord(num:$0)) }
-    print("DIC >> \(dic)")
+func toDictionary(array:[Int]) -> [Int:String] {
+    let dict:[Int:String] = Dictionary( uniqueKeysWithValues: array.map{ ($0, intAsWord(num:$0)) })
+    return dict
 }
 
 func intAsWord (num: Int) -> String {
-    let numberValue = NSNumber(value: num)
     let formatter = NumberFormatter()
     formatter.numberStyle = .spellOut
-    return formatter.string(from: numberValue) ?? "-1"
+    return formatter.string(from: NSNumber(value: num)) ?? "-1"
+}
+
+func compareGetSum(array:[Int], dict:[Int:String]) -> Int {
+    let keys = dict.keys
+    for n in array {
+        for k in keys {
+            if n == k {
+                print(n+k)
+//                return n+k
+            }
+        }
+    }
+    return 0
 }
 
 iterateOverArray(array: array, number: 0)
-toDictionary(array: array)
+let dict = toDictionary(array: array)
+print(compareGetSum(array: array, dict: dict))
