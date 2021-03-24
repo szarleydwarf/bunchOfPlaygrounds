@@ -1,6 +1,6 @@
 import Foundation
 
-let array = [1,5,12,55,100,23]
+let array = [1,5,12,55,100,23, 44, 31, 42, 2345]
 
 func iterateOverArray(array:[Int], number:Int) {
     for n in array {
@@ -21,10 +21,16 @@ func intAsWord (num: Int) -> String {
 
 func compareGetSum(array:[Int], dict:[Int:String]) -> Int {
     let keys = dict.keys
+    array.forEach({n in
+        if keys.contains(n) {
+            print("1. >> \(n+n)")
+        }
+    })
+    
     for n in array {
         for k in keys {
             if n == k {
-                print(n+k)
+                print("2. >> \(n+k)")
 //                return n+k
             }
         }
@@ -32,6 +38,6 @@ func compareGetSum(array:[Int], dict:[Int:String]) -> Int {
     return 0
 }
 
-iterateOverArray(array: array, number: 0)
+//iterateOverArray(array: array, number: 0)
 let dict = toDictionary(array: array)
 print(compareGetSum(array: array, dict: dict))
