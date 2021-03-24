@@ -16,10 +16,18 @@ func inDictionary(array:[Int]) -> [Int:String] {
     return dict
 }
 
-print("DICT>> \(inDictionary(array: array))")
+var dict = inDictionary(array: array)
+print("DICT>> \(dict)")
 
-
-
+// search for pairs
+let keys = dict.keys
+array.forEach({n in
+    if keys.contains(n) {
+        print("\(n) >>\(n+n)")
+        let m = n + n
+        dict[m] = intAsWord(num: m)
+    }
+})
 
 
 
@@ -70,5 +78,5 @@ func compareGetSum(array:[Int], dict:[Int:String]) -> Int {
 }
 
 //iterateOverArray(array: array, number: 0)
-let dict = toDictionary(array: array)
-print(compareGetSum(array: array, dict: dict))
+//let dict = toDictionary(array: array)
+//print(compareGetSum(array: array, dict: dict))
