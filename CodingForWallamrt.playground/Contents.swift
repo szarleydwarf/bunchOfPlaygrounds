@@ -1,6 +1,41 @@
 import Foundation
 
-let array = [1,5,12,55,100,23, 44, 31, 42, 2345]
+let array = [1,5,12,55,100, 100,23, 44, 31, 42, 2345]
+
+func intAsWord (num: Int) -> String {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .spellOut
+    return formatter.string(from: NSNumber(value: num)) ?? "-1"
+}
+
+func inDictionary(array:[Int]) -> [Int:String] {
+    var dict = [Int:String]()
+    for n in array {
+        dict[n] = intAsWord(num: n)
+    }
+    return dict
+}
+
+print("DICT>> \(inDictionary(array: array))")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 func iterateOverArray(array:[Int], number:Int) {
     for n in array {
@@ -13,11 +48,7 @@ func toDictionary(array:[Int]) -> [Int:String] {
     return dict
 }
 
-func intAsWord (num: Int) -> String {
-    let formatter = NumberFormatter()
-    formatter.numberStyle = .spellOut
-    return formatter.string(from: NSNumber(value: num)) ?? "-1"
-}
+
 
 func compareGetSum(array:[Int], dict:[Int:String]) -> Int {
     let keys = dict.keys
@@ -27,14 +58,14 @@ func compareGetSum(array:[Int], dict:[Int:String]) -> Int {
         }
     })
     
-    for n in array {
-        for k in keys {
-            if n == k {
-                print("2. >> \(n+k)")
-//                return n+k
-            }
-        }
-    }
+//    for n in array {
+//        for k in keys {
+//            if n == k {
+//                print("2. >> \(n+k)")
+////                return n+k
+//            }
+//        }
+//    }
     return 0
 }
 
